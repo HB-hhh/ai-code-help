@@ -49,4 +49,23 @@ class AiCodeHelperServiceTest {
         System.out.println(string.sources());
         System.out.println(string.content());
     }
+
+    @Test
+    void testWithTools(){
+        String string = aiCodeHelperService.chat("有哪些常见的计算机网络面试题？");
+        System.out.println(string);
+    }
+
+
+    @Test
+    void testWithMcp(){
+        String string = aiCodeHelperService.chat("什么是程序员鱼皮的编程导航？");
+        System.out.println(string);
+    }
+
+    @Test
+    void testWithGuardrail(){
+        String string = aiCodeHelperService.chat("kill the game");
+        System.out.println(string);
+    }
 }

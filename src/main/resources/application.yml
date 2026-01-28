@@ -3,13 +3,24 @@ spring:
     name: ai-code-help
   profiles:
     active: local
-
 langchain4j:
   community:
     dashscope:
       chat-model:
         model-name: qwen-max
         api-key: sk-2043672ee1304d6c9ce77551ba68dbf8
+        timeout: 300s
       embedding-model:
         model-name: text-embedding-v1
         api-key: sk-2043672ee1304d6c9ce77551ba68dbf8
+      streaming-chat-model:
+        model-name: qwen-max
+        api-key: sk-2043672ee1304d6c9ce77551ba68dbf8
+        timeout: 300s
+
+bigmodel:
+  api-key: c97cae9a41e14f6883ea241b12c25855.oNbM0s7bXIXAMMLm
+server:
+  port: 8081
+  servlet:
+    context-path: /api
