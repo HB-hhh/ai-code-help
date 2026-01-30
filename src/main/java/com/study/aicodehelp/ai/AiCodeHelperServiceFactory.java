@@ -1,5 +1,6 @@
 package com.study.aicodehelp.ai;
 
+import com.study.aicodehelp.ai.tools.DateTimeTool;
 import com.study.aicodehelp.ai.tools.InterviewQuestionTool;
 import dev.langchain4j.mcp.McpToolProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
@@ -37,7 +38,7 @@ public class AiCodeHelperServiceFactory {
                 .chatMemoryProvider(memoryId -> MessageWindowChatMemory.withMaxMessages(10)) //每个会话独立存储
                 .streamingChatModel(streamingChatModel) // 流式输出
                 .contentRetriever(contentRetriever) //Rag 知识库
-                .tools(new InterviewQuestionTool()) //工具
+                .tools(new InterviewQuestionTool(), new DateTimeTool()) // 工具：面试题搜索、当前日期时间
                 .toolProvider(mcpToolProvider) // MCP工具
                 .build();
 

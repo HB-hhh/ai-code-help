@@ -44,12 +44,12 @@ public class RagConfig {
         //加载文档
         ingestor.ingest(documents);
 
-        //自定义内容加载器
+        // 只检索与问题强相关的内容，减少无关注入，避免回答冗长、重复
         EmbeddingStoreContentRetriever retriever = EmbeddingStoreContentRetriever.builder()
                 .embeddingModel(embeddingModel)
                 .embeddingStore(embeddingStore)
-                .maxResults(5)//最多五条
-                .minScore(0.75)//过滤掉分数小于0.75的结果
+                .maxResults(3)
+                .minScore(0.8)
                 .build();
 
         return retriever;
